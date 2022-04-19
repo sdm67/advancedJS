@@ -5,21 +5,39 @@ const products = [
     {id: 4, title: 'Gamepad', price: 150},
 ];
 
-const renderProduct = (title, price) => {
+const renderProduct = (title = 'Продукт 222', price = 222) => {
+
     return `<div class="product-item">
+
                 <h3>${title}</h3>
+
                 <p>${price}</p>
+
                 <button class="by-btn">Добавить</button>
+
               </div>`;
+
 };
+
+ 
 
 const renderProducts = (list) => {
-    const productList = list.map((good) => {
-        return renderProduct(good.title, good.price);
+
+    let productList = list.map((good) => {
+
+        return renderProduct(good.title , good.price);
+
     });
-    document.querySelector('.products').innerHTML = productList;
+
+    document.querySelector('.products').innerHTML = productList.join('');
+
+ 
 
     console.log(productList);
+
 };
 
+ 
+
 renderProducts(products);
+
